@@ -14,6 +14,8 @@ type KeyManager interface {
 	SignMessage(privateKey kyber.Scalar, message []byte) ([]byte, error) // Signs a message using Schnorr signature
 	/*GenerateProof(circuit frontend.API, witness frontend.Circuit) ([]byte, error) // Generates a ZKP
 	VerifyProof(circuit frontend.API, proof []byte) (bool, error)    */ // Verifies a ZKP
+	Encrypt(publicKey kyber.Point, message []byte) ([]byte, error)
+	Decrypt(privateKey kyber.Scalar, cipherText []byte) ([]byte, error)
 }
 
 type DefaultKeyManager struct{}

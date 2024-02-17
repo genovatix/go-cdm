@@ -19,3 +19,5 @@
 
 # Go workspace file
 go.work
+swarm.key
+hs_err_pid71161.log
