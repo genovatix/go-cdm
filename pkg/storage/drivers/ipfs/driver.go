@@ -3,9 +3,9 @@ package ipfs
 import (
 	"bytes"
 	"context"
-	"github.com/genovatix/algoliocdm/cryptography"
 	"github.com/genovatix/algoliocdm/log"
-	"github.com/genovatix/algoliocdm/storage"
+	"github.com/genovatix/algoliocdm/pkg/cryptography"
+	"github.com/genovatix/algoliocdm/pkg/storage"
 	shell "github.com/ipfs/go-ipfs-api"
 	"go.dedis.ch/kyber/v3"
 	"go.uber.org/zap"

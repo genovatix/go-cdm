@@ -2,9 +2,9 @@ package repository
 
 import (
 	"context"
-	"github.com/genovatix/algoliocdm/cryptography"
 	"github.com/genovatix/algoliocdm/log"
-	"github.com/genovatix/algoliocdm/storage/drivers/ipfs"
+	"github.com/genovatix/algoliocdm/pkg/cryptography"
+	"github.com/genovatix/algoliocdm/pkg/storage/drivers/ipfs"
 	"go.uber.org/zap"
 )
 

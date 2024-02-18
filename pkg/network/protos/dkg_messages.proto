@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package algoliocdm.network;
+
+option go_package = "github.com/genovatix/algoliocdm/network;netpb";
+
+// DKGDealMessage represents a DKG deal message
+message DKGDealMessage {
+  int32 sender_id = 1;
+  bytes deal_data = 2; // The deal data, which is a serialized version of the pedersen.DistKeyShareDeal structure
+}
+
+// DKGResponseMessage represents a DKG response message
+message DKGResponseMessage {
+  int32 sender_id = 1;
+  bytes response_data = 2; // The response data, which is a serialized version of the pedersen.Response structure
+}
+
+// Other DKG-related messages can be added here...

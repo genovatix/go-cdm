@@ -6,7 +6,8 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
-	"github.com/genovatix/algoliocdm/utils"
+	"github.com/genovatix/algoliocdm/internal/utils"
+	"github.com/genovatix/algoliocdm/pkg/cryptography"
 	"github.com/zeebo/blake3"
 	"log"
 	"math/big"
@@ -28,7 +29,7 @@ const (
 
 type Address struct {
 	raw []byte
-	utils.Decapsulatable
+	cryptography.Decapsulatable
 }
 
 func (addr Address) String() string {
@@ -56,7 +57,7 @@ type RawAddress struct {
 	privKey   []byte
 	seed      [32]byte
 	bi        *big.Int
-	utils.Encapsulatable
+	cryptography.Encapsulatable
 }
 
 var BytePrefix []byte = []byte("0x100010001000")
@@ -152,7 +153,7 @@ func (addr Address) FromBytes(data []byte) (interface{}, error) {
 }
 
 func (r *RawAddress) Marshal(key []byte, dst []byte) {
-	result, err := utils.Encapsulate(r, key)
+	result, err := cryptography.Encapsulate(r, key)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
@@ -160,7 +161,7 @@ func (r *RawAddress) Marshal(key []byte, dst []byte) {
 }
 
 func (addr Address) Unmarshal(key []byte, data []byte, dst *RawAddress) {
-	result, err := utils.Decapsulate(addr, key)
+	result, err := cryptography.Decapsulate(addr, key)
 	if err != nil {
 		log.Fatal(err.Error())
 	}

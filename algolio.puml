@@ -1,0 +1,34 @@
+@startuml
+!theme plain
+
+package "algoliocdm/cmd/algoliod" {
+    [main.go]
+}
+
+package "algoliocdm/pkg" {
+    package "algolio" {
+        [algolio.go]
+        [algoliomock.go]
+        [discovery.go]
+        [interaction.go]
+        [interactionTypes.go]
+        [learning.go]
+        [peer.go]
+    }
+    package "cryptography" {
+        [circuit.go]
+        [encryption.go]
+        [keys.go]
+            }
+    package "network" {
+        [network.go]
+        [dkg.go]
+    }
+    ' Add identity and storage packages if necessary
+}
+
+package "algoliocdm/internal/utils" {
+    [logger.go]
+}
+
+@enduml

@@ -1,14 +1,15 @@
-package algolio
+package network
 
 import (
 	"fmt"
+	"github.com/genovatix/algoliocdm/algolio"
 	ped "go.dedis.ch/kyber/v3/share/dkg/pedersen"
 )
 
 var PARTICIPANTS int
 var THRESHOLD int
 
-func (a *AlgolioImpl) DistributeDeals(participants []*AlgolioImpl) {
+func (a *algolio.AlgolioImpl) DistributeDeals(participants []*algolio.AlgolioImpl) {
 	deals, _ := a.DKGInstance.Deals()
 	for _, p := range participants {
 		if p.InternalID != a.InternalID {
@@ -18,12 +19,12 @@ func (a *AlgolioImpl) DistributeDeals(participants []*AlgolioImpl) {
 }
 
 // ProcessDeal processes an incoming deal from another Algolio.
-func (a *AlgolioImpl) ProcessDeal(deal *ped.Deal) *ped.Response {
+func (a *algolio.AlgolioImpl) ProcessDeal(deal *ped.Deal) *ped.Response {
 	response, _ := a.DKGInstance.ProcessDeal(deal)
 	return response
 }
 
-func SimulateDKGProcess(participants []*AlgolioImpl) {
+func SimulateDKGProcess(participants []*algolio.AlgolioImpl) {
 	// Distribute deals
 	for _, algolio := range participants {
 		algolio.DistributeDeals(participants)
@@ -50,7 +51,7 @@ func SimulateDKGProcess(participants []*AlgolioImpl) {
 	}
 }
 
-func FinalizeDKG(participants []*AlgolioImpl) {
+func FinalizeDKG(participants []*algolio.AlgolioImpl) {
 	for _, algolio := range participants {
 		// Finalizing the DKG to get the shared public key and private share
 		dkShare, _ := algolio.DKGInstance.DistKeyShare()

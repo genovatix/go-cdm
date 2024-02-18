@@ -1,6 +1,8 @@
 package algolio
 
-import "github.com/genovatix/algoliocdm/identity"
+import (
+	"github.com/genovatix/algoliocdm/pkg/identity"
+)
 
 type Graph struct {
 	nodes map[string]*Node // Keyed by address string

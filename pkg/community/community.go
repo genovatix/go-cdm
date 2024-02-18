@@ -2,7 +2,7 @@ package community
 
 import (
 	"fmt"
-	"github.com/genovatix/algoliocdm/transaction"
+	"github.com/genovatix/algoliocdm/pkg/transaction"
 )
 
 func (m MockCommunityMemory) AddTransaction(t transaction.Transaction) error {

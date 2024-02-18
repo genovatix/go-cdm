@@ -1,0 +1,80 @@
+classDiagram
+    class cmd {
+        main.go
+    }
+    class internal {
+        /utils
+    }
+    class utils {
+        chaincode.go
+        config.go
+        logger.go
+    }
+    class pkg {
+        /algolio
+        /community
+        /cryptography
+        /identity
+        /network
+        /storage
+        /transaction
+    }
+    class algolio {
+        algolio.go
+        algoliomock.go
+        discovery.go
+        interaction.go
+        interactionTypes.go
+        learning.go
+        peer.go
+    }
+    class community {
+        *For community related logic*
+    }
+    class cryptography {
+        circuit.go
+        encryption.go
+        encryption_test.go
+        keys.go
+    }
+    class identity {
+        account.go
+        address.go
+        address_test.go
+    }
+    class network {
+        dkg.go
+        network.go
+    }
+    class storage {
+        /drivers
+        /repository
+        errors.go
+    }
+    class transaction {
+        transaction.go
+    }
+    class drivers {
+        *Storage drivers*
+    }
+    class repository {
+        *Data access interfaces*
+    }
+
+    cmd --|> pkg
+    internal --|> utils
+    pkg --|> algolio
+    pkg --|> community
+    pkg --|> cryptography
+    pkg --|> identity
+    pkg --|> network
+    pkg --|> storage
+    pkg --|> transaction
+    storage --|> drivers
+    storage --|> repository
+
+    algolio --|> cryptography : uses
+    algolio --|> network : uses
+    algolio --|> storage : uses
+    cryptography --|> identity : uses
+    network --|> cryptography : uses

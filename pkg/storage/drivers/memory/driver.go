@@ -3,8 +3,8 @@ package memory
 
 import (
 	"github.com/genovatix/algoliocdm/log"
-	"github.com/genovatix/algoliocdm/storage"
-	"github.com/genovatix/algoliocdm/storage/drivers"
+	"github.com/genovatix/algoliocdm/pkg/storage"
+	"github.com/genovatix/algoliocdm/pkg/storage/drivers"
 	"go.uber.org/zap"
 	"sync"
 )

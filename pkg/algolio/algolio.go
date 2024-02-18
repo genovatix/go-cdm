@@ -4,7 +4,8 @@ import (
 	"bufio"
 	"context"
 	"fmt"
-	"github.com/genovatix/algoliocdm/transaction"
+	"github.com/genovatix/algoliocdm/log"
+	"github.com/genovatix/algoliocdm/pkg/transaction"
 	"go.dedis.ch/kyber/v3"
 	ped "go.dedis.ch/kyber/v3/share/dkg/pedersen"
 	"net"
@@ -139,7 +140,7 @@ func NewAlgolio(id, address string) Algolio {
 	defer cancel()
 	conn, err := net.Dial("udp", address)
 	if err != nil {
-		GetLogger().Fatal(err.Error())
+		log.Logger.Fatal(err.Error())
 	}
 	algolio := &AlgolioImpl{
 		ID:        id,

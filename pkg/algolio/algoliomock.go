@@ -2,7 +2,8 @@ package algolio
 
 import (
 	"fmt"
-	"github.com/genovatix/algoliocdm/transaction"
+	"github.com/genovatix/algoliocdm/algolio"
+	"github.com/genovatix/algoliocdm/pkg/transaction"
 )
 
 // Algolio defines the interface for our virtual entities.
@@ -10,7 +11,7 @@ import (
 // MockAlgolio is a mock implementation of the Algolio interface.
 type MockAlgolio struct {
 	ID                string
-	Peers             []Algolio
+	Peers             []algolio.Algolio
 	PeerInfo          []Peer
 	DiscoveryCriteria map[string]string
 	Metadata          map[string]string
@@ -21,7 +22,7 @@ func (m *MockAlgolio) ProcessTransaction(t transaction.Transaction) error {
 	return nil
 }
 
-func (m *MockAlgolio) Communicate(peer Algolio) error {
+func (m *MockAlgolio) Communicate(peer algolio.Algolio) error {
 	fmt.Printf("Algolio %s communicating with peer\n", m.ID)
 	return nil
 }

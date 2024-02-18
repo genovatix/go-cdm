@@ -1,0 +1,85 @@
+graph TD
+    cmd[("/cmd")]
+    main[("main.go")]
+    pkg[("/pkg")]
+    algolio[("/algolio")]
+    community[("/community")]
+    cryptography[("/cryptography")]
+    identity[("/identity")]
+    network[("/network")]
+    storage[("/storage")]
+    transaction[("/transaction")]
+    internal[("/internal")]
+    utils[("/utils")]
+    log[("/log")]
+
+    algolio_go[("algolio.go")]
+    algoliomock_go[("algoliomock.go")]
+    discovery_go[("discovery.go")]
+    interaction_go[("interaction.go")]
+    interactionTypes_go[("interactionTypes.go")]
+    learning_go[("learning.go")]
+    peer_go[("peer.go")]
+
+    circuit_go[("circuit.go")]
+    encryption_go[("encryption.go")]
+    encryption_test_go[("encryption_test.go")]
+    keys_go[("keys.go")]
+
+    account_go[("account.go")]
+    address_go[("address.go")]
+    address_test_go[("address_test.go")]
+
+    dkg_go[("dkg.go")]
+    network_go[("network.go")]
+
+    drivers[("/drivers")]
+    repository[("/repository")]
+    errors_go[("errors.go")]
+
+    transaction_go[("transaction.go")]
+
+    chaincode_go[("chaincode.go")]
+    config_go[("config.go")]
+    logger_go[("logger.go")]
+
+    cmd --> main
+    pkg --> algolio
+    pkg --> community
+    pkg --> cryptography
+    pkg --> identity
+    pkg --> network
+    pkg --> storage
+    pkg --> transaction
+    internal --> utils
+    log --> logger_go
+
+    algolio --> algolio_go
+    algolio --> algoliomock_go
+    algolio --> discovery_go
+    algolio --> interaction_go
+    algolio --> interactionTypes_go
+    algolio --> learning_go
+    algolio --> peer_go
+
+    cryptography --> circuit_go
+    cryptography --> encryption_go
+    cryptography --> encryption_test_go
+    cryptography --> keys_go
+
+    identity --> account_go
+    identity --> address_go
+    identity --> address_test_go
+
+    network --> dkg_go
+    network --> network_go
+
+    storage --> drivers
+    storage --> repository
+    storage --> errors_go
+
+    transaction --> transaction_go
+
+    utils --> chaincode_go
+    utils --> config_go
+    utils --> logger_go

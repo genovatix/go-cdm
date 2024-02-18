@@ -1,13 +1,14 @@
-package algolio
+package network
 
 import (
-	"github.com/genovatix/algoliocdm/cryptography"
+	"github.com/genovatix/algoliocdm/algolio"
+	"github.com/genovatix/algoliocdm/pkg/cryptography"
 	ped "go.dedis.ch/kyber/v3/share/dkg/pedersen"
 	"go.dedis.ch/kyber/v3/suites"
 )
 
 type AlgoliosNetwork struct {
-	Participants []*AlgolioImpl
+	Participants []*algolio.AlgolioImpl
 	Suite        suites.Suite
 }
 
@@ -18,7 +19,7 @@ func (net *AlgoliosNetwork) InitializeDKG(threshold int) error {
 		algolio.PrivateKey = privKey
 		algolio.PublicKey = pubKey
 
-		dkg, err := ped.NewDistKeyGenerator(net.Suite, privKey, nil, THRESHOLD)
+		dkg, err := ped.NewDistKeyGenerator(net.Suite, privKey, nil, algolio.THRESHOLD)
 		if err != nil {
 			return err
 		}
